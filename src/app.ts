@@ -7,11 +7,13 @@ import { envs } from "./config/env";
 async function Main() {
 
     const postgre = new PostgreDataBase({
+
         PGHOST: envs.PGHOST,
         PGPORT: envs.PGPORT,
         PGDATABASE: envs.PGDATABASE,
         PGPASSWORD: envs.PGPASSWORD,
         PGUSER: envs.PGUSER
+
     })
 
     await postgre.connect();

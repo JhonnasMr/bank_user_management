@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { UserModel, TransactionModel } from "./index";
+import { UserModel, TransactionModel } from "../index";
 
 
 interface PostgreOptions {

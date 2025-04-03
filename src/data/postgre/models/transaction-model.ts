@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 // Table transaction {
 //     id uuid [pk]
@@ -9,7 +9,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeor
 // }
 
 @Entity()
-export class TransactionModel {
+export class TransactionModel extends BaseEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id: string

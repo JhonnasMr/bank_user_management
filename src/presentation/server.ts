@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import cookieParser = require("cookie-parser");
 
 interface Options {
     port: Number,
@@ -21,6 +22,7 @@ export class Server {
     async start() {
 
         this.app.use(express.json());
+        this.app.use(cookieParser());
 
         this.app.use(express.urlencoded());
 

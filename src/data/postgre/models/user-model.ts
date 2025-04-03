@@ -1,4 +1,5 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { TransactionModel } from "./transaction-model";
 
 // Table User {
 //     id uuid [pk]
@@ -33,5 +34,8 @@ export class UserModel extends BaseEntity {
 
     @CreateDateColumn({ type: 'timestamp' })
     created_at: Date
+
+    @OneToMany(() => TransactionModel, (transfer) => transfer.user)
+    transactions: TransactionModel[]
 
 }

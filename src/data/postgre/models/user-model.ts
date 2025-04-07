@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TransactionModel } from "./transaction-model";
 
 // Table User {
@@ -23,6 +23,9 @@ export class UserModel extends BaseEntity {
     @Column('varchar', { length: 50, nullable: false, unique: true })
     email: string
 
+    @Column('boolean', { default: false })
+    email_verified: boolean
+
     @Column('text', { nullable: false })
     password: string
 
@@ -32,10 +35,13 @@ export class UserModel extends BaseEntity {
     @Column('decimal', { default: 0.00 })
     balance: number
 
-    @CreateDateColumn({ type: 'timestamp' })
+    @Column('timestamp', {
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false,
+    })
     created_at: Date
 
-    @OneToMany(() => TransactionModel, (transfer) => transfer.user)
-    transactions: TransactionModel[]
+    @OneToMany(() => TransactionModel, (transactionModel) => transactionModel.user)
+    transaction: TransactionModel[]
 
 }

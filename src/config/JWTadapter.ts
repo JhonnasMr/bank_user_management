@@ -3,9 +3,9 @@ import { envs } from "./env"
 
 export class JWTadapter {
 
-    static async generateJWT(payload: any) {
+    static async generateJWT(payload: any, expiresIn: number = 60 * 60 * 24) {
         return new Promise((resolve) => {
-            jwt.sign(payload, envs.JWT_SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
+            jwt.sign(payload, envs.JWT_SECRET_KEY, { expiresIn: expiresIn }, (err, token) => {
                 if (err) {
                     resolve(null);
                 }

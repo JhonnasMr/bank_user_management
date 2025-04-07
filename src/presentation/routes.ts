@@ -6,6 +6,11 @@ import { AuthMiddleware } from "./common";
 
 export class AppRoute {
 
+    /**
+     * @description This method is used to define all the routes for the application.
+     * @returns {Router} - The router object with all the routes defined.
+    */
+
     static get routes(): Router {
 
         const route = Router();
@@ -14,7 +19,7 @@ export class AppRoute {
 
         route.use('/api/users', AuthMiddleware.protect, UserRoutes.routes);
 
-        route.use('/api/transactions', TransactionRoutes.routes);
+        route.use('/api/transactions', AuthMiddleware.protect, TransactionRoutes.routes);
 
         return route;
 

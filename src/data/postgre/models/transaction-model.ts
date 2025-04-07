@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { UserModel } from "./user-model";
 
 // Table transaction {
@@ -24,10 +24,14 @@ export class TransactionModel extends BaseEntity {
     @Column('decimal', { precision: 10, scale: 2 })
     amount: number
 
-    @CreateDateColumn({ type: "timestamp" })
-    transactionDate: Date;
+    @Column('timestamp', {
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false,
+    })
+    transaction_date: Date;
 
-    @ManyToOne(() => UserModel, (user) => user.transactions)
+    @ManyToOne(() => UserModel, (userModel) => userModel.transaction)
+    @JoinColumn({ name: 'sender_id', referencedColumnName: 'id' })
     user: UserModel
 
 }

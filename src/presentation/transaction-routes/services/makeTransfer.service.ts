@@ -8,7 +8,6 @@ export class MakeTransferService {
         // 1.- verificamos que ambos usuarios pererteneezcan a nuestra entidad
         const sender = await this.isUserbank(options.sender_account_number);
         const receiver = await this.isUserbank(options.receiver_account_number);
-
         // 2.- creeamos la transferencia
         if (!this.transferIsPosible(sender.balance, options.amount)) {
             throw CustomError.internalServer('The issuer does not have sufficient balance');
@@ -77,4 +76,5 @@ export class MakeTransferService {
     private transferIsPosible(sender_amount: number, transfer_amount: number): boolean {
         return sender_amount >= transfer_amount;
     }
+
 }

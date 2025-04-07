@@ -11,4 +11,8 @@ export const envs = {
     PGPASSWORD: get('PGPASSWORD').required().asString(),
     JWT_SECRET_KEY: get('JWT_SECRET_KEY').required().asString(),
     JWT_EXPIRED_IN: get('JWT_EXPIRED_IN').required().asString(),
+    MAILER_SECRET_KEY: get('MAILER_SECRET_KEY').required().asString(),
+    MAILER_EMAIL: get('MAILER_EMAIL').required().asString(),
+    MAILER_SERRVICE: get('MAILER_SERRVICE').required().asString(),
+    APP_URL: get('APP_URL').required().asString(),
 }

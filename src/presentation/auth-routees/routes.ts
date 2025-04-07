@@ -23,6 +23,8 @@ export class AuthRoutes {
 
         route.post('/login', authController.loginUser);
 
+        route.get('/verify-email/:token', authController.verifyEmail);
+
         return route;
 
     }

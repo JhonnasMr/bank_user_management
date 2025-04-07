@@ -21,12 +21,13 @@ export class AuthMiddleware {
         })
 
         req.body.session = {
+            id: user?.id,
             name: user?.name,
             email: user?.email,
+            password: user?.password,
+            account_number: user?.account_number,
             balance: user?.balance,
             created_at: user?.created_at,
-            account_number: user?.account_number,
-            password: user?.password
         }
 
         next();

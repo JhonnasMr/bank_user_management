@@ -77,4 +77,26 @@ export class AuthController {
 
     }
 
+    verifyEmail = (req: Request, res: Response) => {
+
+        const { token } = req.params;
+
+        if (!token) {
+            return res.status(422).json({
+                message: 'token is required'
+            })
+        }
+
+        this.registerUserService.validateEmail(token)
+            .then(data => {
+                return res.status(200).json({
+                    message: data
+                })
+            })
+            .catch(err => {
+                return this.handleError(err, res);
+            })
+
+    }
+
 }

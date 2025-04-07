@@ -22,13 +22,17 @@
   },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pug": "^2.0.10",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "dotenv": "16.4.7",
     "env-var": "7.5.0",
     "express": "4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
     "pg": "8.14.1",
+    "pug": "^3.0.3",
     "reflect-metadata": "0.2.2",
     "typeorm": "0.3.21"
   }

@@ -4,6 +4,11 @@ import { PostgreDataBase } from "./data";
 import { AppRoute } from "./presentation/routes";
 import { envs } from "./config/env";
 
+/**
+ * * @description This is the main entry point of the application.
+ * @returns {Promise<void>} - A promise that resolves when the application is started.
+ */
+
 async function Main() {
 
     const postgre = new PostgreDataBase({
